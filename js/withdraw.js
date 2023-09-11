@@ -12,10 +12,15 @@ document.getElementById("withdraw-btn").addEventListener('click', function () {
     const prevWithdrawNumber = parseFloat(prevWithdraw);
     const totalAmountNumber = parseFloat(totalAmount);
 
-    const totalWithdraw = prevWithdrawNumber + withdrawAmountNumber;
-    withdrawArea.innerText = totalWithdraw;
-    const totalBalance = totalAmountNumber - withdrawAmountNumber;
-    totalAmountArea.innerText = totalBalance;
+    if (withdrawAmountNumber > totalAmountNumber) {
+        alert("You do not have enough balance.");
+    }
+    else {
+        const totalWithdraw = prevWithdrawNumber + withdrawAmountNumber;
+        withdrawArea.innerText = totalWithdraw;
+        const totalBalance = totalAmountNumber - withdrawAmountNumber;
+        totalAmountArea.innerText = totalBalance;
+    }
 
     withdrawField.value = '';
 })
